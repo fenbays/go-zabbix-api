@@ -97,7 +97,7 @@ func NewAPI(c Config) (api *API) {
 	api = &API{
 		url:       c.Url,
 		c:         http.Client{},
-		UserAgent: "github.com/tpretz/go-zabbix-api",
+		UserAgent: "github.com/fenbays/go-zabbix-api",
 		Logger:    c.Log,
 		Config:    c,
 	}
