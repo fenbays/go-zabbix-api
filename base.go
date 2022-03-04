@@ -149,6 +149,11 @@ func (api *API) callBytes(method string, params interface{}) (b []byte, err erro
 		api.ex.Lock()
 		defer api.ex.Unlock()
 	}
+	tr := &http.Transport{
+		TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
+	}
+
+	api.c = http.Client{Transport: tr}
 
 	res, err := api.c.Do(req)
 	if err != nil {
